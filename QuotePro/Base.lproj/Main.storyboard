@@ -1,24 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Quote Bilder View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="QuoteBilderViewController" customModule="QuotePro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lik-bi-TSU" customClass="QuoteView" customModule="QuotePro" customModuleProvider="target">
+                                <rect key="frame" x="16" y="20" width="343" height="559"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.055372431506849326" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wM6-Dn-0pr">
+                                <rect key="frame" x="16" y="587" width="98" height="30"/>
+                                <state key="normal" title="Change Photo"/>
+                                <connections>
+                                    <action selector="changePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XeY-jL-L3o"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3T-Y8-iod">
+                                <rect key="frame" x="280" y="587" width="79" height="30"/>
+                                <state key="normal" title="Save Quote"/>
+                                <connections>
+                                    <action selector="saveQuote:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oj2-SL-808"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfT-ln-f3A">
+                                <rect key="frame" x="138" y="587" width="99" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IsV-sa-3mS"/>
+                                </constraints>
+                                <state key="normal" title="Change Quote"/>
+                                <connections>
+                                    <action selector="changeQuote:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XX6-WU-2eu"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lik-bi-TSU" secondAttribute="trailing" constant="16" id="6Zy-7v-CTS"/>
+                            <constraint firstItem="lik-bi-TSU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="86C-Jl-bnz"/>
+                            <constraint firstItem="cfT-ln-f3A" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="A4M-Oo-oBC"/>
+                            <constraint firstItem="W3T-Y8-iod" firstAttribute="height" secondItem="cfT-ln-f3A" secondAttribute="height" id="BQF-et-0jv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cfT-ln-f3A" secondAttribute="bottom" constant="50" id="QlY-4J-Hmn"/>
+                            <constraint firstItem="wM6-Dn-0pr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="SEU-cP-iJH"/>
+                            <constraint firstItem="lik-bi-TSU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Uvv-Jk-zUx"/>
+                            <constraint firstItem="lik-bi-TSU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Uzv-8F-Rvc"/>
+                            <constraint firstItem="wM6-Dn-0pr" firstAttribute="top" secondItem="lik-bi-TSU" secondAttribute="bottom" constant="8" id="e9P-e4-QHo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W3T-Y8-iod" secondAttribute="trailing" constant="16" id="g5n-Xi-VbC"/>
+                            <constraint firstItem="wM6-Dn-0pr" firstAttribute="height" secondItem="cfT-ln-f3A" secondAttribute="height" id="hFn-Ok-qds"/>
+                            <constraint firstItem="W3T-Y8-iod" firstAttribute="top" secondItem="lik-bi-TSU" secondAttribute="bottom" constant="8" id="s4T-FI-Hjb"/>
+                            <constraint firstItem="cfT-ln-f3A" firstAttribute="top" secondItem="lik-bi-TSU" secondAttribute="bottom" constant="8" id="zJS-5y-BEy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="quoteView" destination="lik-bi-TSU" id="UVf-El-qw9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
