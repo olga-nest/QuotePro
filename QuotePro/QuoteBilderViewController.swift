@@ -9,8 +9,6 @@
 import UIKit
 
 class QuoteBilderViewController: UIViewController {
-    
-    
 
     @IBOutlet weak var quoteView: QuoteView!
 
@@ -18,6 +16,7 @@ class QuoteBilderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
     /*
@@ -33,6 +32,7 @@ class QuoteBilderViewController: UIViewController {
     }
     
     @IBAction func changeQuote(_ sender: UIButton) {
+         quoteView.updateQuote()
     }
     
     @IBAction func saveQuote(_ sender: UIButton) {
