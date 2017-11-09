@@ -12,9 +12,11 @@ class QuoteBuilder {
     
     //MARK: Properties
     static let shared = QuoteBuilder()
+    var quotes = [Quote]()
     
     // MARK: - Networking
-    func getQuote(completionHandler:@escaping (Quote) -> Void) {
+    func getQuote() {
+        
         let url = URL(string: "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json")!
         let request = URLRequest(url: url)
         let sessionConfiguration = URLSessionConfiguration.default
@@ -44,8 +46,9 @@ class QuoteBuilder {
             let quoteText = json["quoteText"]!
             let quoteAuthor = json["quoteAuthor"]!
             let quote = Quote(quoteText: quoteText, quoteAuthor: quoteAuthor)
+            self.quotes.append(quote)
+            print(self.quotes.count)
             
-            completionHandler(quote)
         }
         task.resume()
     }
