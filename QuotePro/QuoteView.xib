@@ -13,6 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuoteView" customModule="QuotePro" customModuleProvider="target">
             <connections>
                 <outlet property="photoView" destination="OyZ-fS-enT" id="Av3-aQ-LHu"/>
+                <outlet property="quoteAuthorLabel" destination="F5J-a3-NHT" id="8He-6s-qeu"/>
+                <outlet property="quoteTextLable" destination="79w-p4-DrT" id="gHF-ha-0fx"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -27,7 +29,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79w-p4-DrT" userLabel="QuoteLabel">
                     <rect key="frame" x="8" y="476" width="359" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
