@@ -16,6 +16,10 @@ class QuoteView: UIView {
     private var contentView: UIView!
     
     @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var quoteTextLable: UILabel!
+    @IBOutlet weak var quoteAuthorLabel: UILabel!
+    
+    
     override init(frame: CGRect) {
         // Called when view is created from code
         super.init(frame: frame)
@@ -35,13 +39,40 @@ class QuoteView: UIView {
 //    }
 //
     private func commonInit() {
+//        QuoteBuilder.shared.getQuote()
+//        let quote = QuoteBuilder.shared.quotes[0]
+//        setupQuote(newQuote: quote)
+        updateQuote()
         setupFromXib()
-        setupView()
+        setupPhotoInView()
     }
 
-    private func setupView() {
-        let photo = Photo()
-        photoView.image = photo.photo
+    private func setupPhotoInView() {
+            let photo = Photo()
+            photoView.image = photo.photo
+    }
+    
+    func updateQuote() {
+        let quoteIndex = QuoteBuilder.shared.quotes.count - 1
+        let quote = QuoteBuilder.shared.quotes[quoteIndex]
+        setupQuote(newQuote: quote)
+    }
+    
+    func setupQuote(newQuote: Quote) {
+
+        DispatchQueue.main.async {
+        
+        if newQuote.quoteText != nil {
+            self.quoteTextLable.text = newQuote.quoteText }
+        else {
+            print("Unable to set quote text")
+        }
+            if newQuote.quoteAuthor != nil {
+                self.quoteAuthorLabel.text = newQuote.quoteAuthor}
+            else {
+                print("Unable to set quote author")
+            }
+        }
     }
 
     private func setupFromXib() {
@@ -64,7 +95,7 @@ class QuoteView: UIView {
     }
     
     func updatePhoto() {
-        setupView()
+        setupPhotoInView()
     }
 
 }
