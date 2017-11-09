@@ -56,6 +56,7 @@ class QuoteView: UIView {
         let quoteIndex = QuoteBuilder.shared.quotes.count - 1
         let quote = QuoteBuilder.shared.quotes[quoteIndex]
         setupQuote(newQuote: quote)
+        QuoteBuilder.shared.getQuote()
     }
     
     func setupQuote(newQuote: Quote) {
