@@ -10,9 +10,10 @@ import UIKit
 
 class QuoteBilderViewController: UIViewController {
 
+    //MARK: Properties
     @IBOutlet weak var quoteView: QuoteView!
-
-
+  //  var awesomeQuote: Quote()
+    var awesomeQuotes = [Quote]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,8 @@ class QuoteBilderViewController: UIViewController {
     }
     */
 
+    
+    //MARK: Actions
     @IBAction func changePhoto(_ sender: UIButton) {
         quoteView.updatePhoto()
     }
@@ -36,5 +39,13 @@ class QuoteBilderViewController: UIViewController {
     }
     
     @IBAction func saveQuote(_ sender: UIButton) {
+        
+        let text = quoteView.quoteTextLable.text
+        let author = quoteView.quoteAuthorLabel.text
+        
+        let awesomeQuote = Quote(quoteText: text!, quoteAuthor: author!)
+        awesomeQuote.quotePhoto = quoteView.photoView.image
+        
+        awesomeQuotes.append(awesomeQuote)
     }
 }
