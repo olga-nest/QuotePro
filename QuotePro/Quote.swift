@@ -15,10 +15,13 @@ class Quote {
     var quoteText: String? = nil
     var quoteAuthor: String? = nil
     var quotePhoto: UIImage? = nil
+    var quoteSnapshot: UIImage? = nil
     
-    init(quoteText: String, quoteAuthor: String) {
+    init(quoteText: String, quoteAuthor: String, quoteImage: UIImage?, quoteSnapshot: UIImage?) {
         self.quoteText = quoteText
         self.quoteAuthor = quoteAuthor
+        self.quotePhoto = quoteImage
+        self.quoteSnapshot = quoteSnapshot
     }
     
 }

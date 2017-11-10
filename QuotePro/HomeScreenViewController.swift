@@ -37,7 +37,6 @@ class HomeScreenViewController: UITableViewController {
         }
         
         let quote = savedQuotes[indexPath.row]
-       // cell.quote = quote
         cell.quoteTextLabel.text = quote.quoteText
         cell.quoteAuthorLabel.text = quote.quoteAuthor
         cell.quoteImageView.image = quote.quotePhoto
@@ -49,21 +48,24 @@ class HomeScreenViewController: UITableViewController {
         
         if let sourceViewController = sender.source as? QuoteBilderViewController,  let newQuote = sourceViewController.awesomeQuote {
             
-            
-            
-//            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//
-//                savedQuotes[selectedIndexPath.row] = newQuote
-//                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-//            } else {
                 //Add a new quote
                 let newIndexPath = IndexPath(row: savedQuotes.count, section: 0)
                 savedQuotes.append(newQuote)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
-//            }
-            
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            didSelectRowAt indexPath: IndexPath) {
+        
+        let quote = savedQuotes[indexPath.row]
+        let quoteSnapshot = quote.quoteSnapshot
+        let activityViewController = UIActivityViewController(activityItems: [quoteSnapshot!], applicationActivities: nil)
+        
+        navigationController?.present(activityViewController, animated: true) {
             
         }
     }
-
+    
+   
 }
