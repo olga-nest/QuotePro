@@ -6,25 +6,29 @@
 //  Copyright © 2017 Olga Nesterova. All rights reserved.
 //
 
+protocol PassingQuotes {
+    func passQuotes() -> Array<Quote>
+}
+
 import UIKit
+
 
 class HomeScreenViewController: UITableViewController {
     
     //MARK: Properties
     var savedQuotes = [Quote]()
+    var delegate : PassingQuotes?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.delegate = QuoteBilderViewController()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        savedQuotes = (delegate?.passQuotes())!
+    }
     
     //MARK: Table view
     
@@ -39,20 +43,33 @@ class HomeScreenViewController: UITableViewController {
         }
         
         let quote = savedQuotes[indexPath.row]
-        cell.quote = quote
-    
+       // cell.quote = quote
+        cell.quoteTextLabel.text = quote.quoteText
+        cell.quoteAuthorLabel.text = quote.quoteAuthor
+        cell.quoteImageView.image = quote.quotePhoto
+        
         return cell
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func unwindToHomeScreen(sender: UIStoryboardSegue) {
+        
+        if let sourceViewController = sender.source as? QuoteBilderViewController,  let newQuote = sourceViewController.awesomeQuote {
+            
+            
+            
+//            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+//
+//                savedQuotes[selectedIndexPath.row] = newQuote
+//                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+//            } else {
+                //Add a new quote
+                let newIndexPath = IndexPath(row: savedQuotes.count, section: 0)
+                savedQuotes.append(newQuote)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+//            }
+            
+            
+        }
     }
-    */
 
 }
