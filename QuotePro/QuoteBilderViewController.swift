@@ -42,11 +42,21 @@ class QuoteBilderViewController: UIViewController {
             print("The save button was not pressed, cancelling")
             return
         }
+        
         let text = quoteView.quoteTextLable.text
         let author = quoteView.quoteAuthorLabel.text
         let image = quoteView.photoView.image
-        
-        awesomeQuote = Quote(quoteText: text!, quoteAuthor: author!, quoteImage: image)
+        let snaphotImg = captureQuoteSnapshot(view: quoteView)
 
+        awesomeQuote = Quote(quoteText: text!, quoteAuthor: author!, quoteImage: image!, quoteSnapshot: snaphotImg)
+
+    }
+    
+    func captureQuoteSnapshot(view: UIView) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        let snapshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return snapshot!
     }
 }
