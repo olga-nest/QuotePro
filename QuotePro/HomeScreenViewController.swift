@@ -48,19 +48,20 @@ class HomeScreenViewController: UITableViewController {
         
         if let sourceViewController = sender.source as? QuoteBilderViewController,  let newQuote = sourceViewController.awesomeQuote {
             
-            
-            
-//            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//
-//                savedQuotes[selectedIndexPath.row] = newQuote
-//                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-//            } else {
                 //Add a new quote
                 let newIndexPath = IndexPath(row: savedQuotes.count, section: 0)
                 savedQuotes.append(newQuote)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
-//            }
-            
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            didSelectRowAt indexPath: IndexPath) {
+        
+        let quoteSnapshot = UIImage()
+        let activityViewController = UIActivityViewController(activityItems: [quoteSnapshot], applicationActivities: nil)
+        
+        navigationController?.present(activityViewController, animated: true) {
             
         }
     }
