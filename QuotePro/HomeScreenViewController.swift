@@ -58,12 +58,14 @@ class HomeScreenViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath) {
         
-        let quoteSnapshot = UIImage()
-        let activityViewController = UIActivityViewController(activityItems: [quoteSnapshot], applicationActivities: nil)
+        let quote = savedQuotes[indexPath.row]
+        let quoteSnapshot = quote.quoteSnapshot
+        let activityViewController = UIActivityViewController(activityItems: [quoteSnapshot!], applicationActivities: nil)
         
         navigationController?.present(activityViewController, animated: true) {
             
         }
     }
-
+    
+   
 }

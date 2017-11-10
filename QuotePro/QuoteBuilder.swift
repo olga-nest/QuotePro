@@ -45,7 +45,7 @@ class QuoteBuilder {
             
             let quoteText = json["quoteText"]!
             let quoteAuthor = json["quoteAuthor"]!
-            let quote = Quote(quoteText: quoteText, quoteAuthor: quoteAuthor, quoteImage: nil)
+            let quote = Quote(quoteText: quoteText, quoteAuthor: quoteAuthor, quoteImage: nil, quoteSnapshot: nil)
             self.quotes.append(quote)
             print(self.quotes.count)
             
