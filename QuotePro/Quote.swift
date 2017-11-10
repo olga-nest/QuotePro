@@ -16,7 +16,7 @@ class Quote {
     var quoteAuthor: String? = nil
     var quotePhoto: UIImage? = nil
     
-    init(quoteText: String, quoteAuthor: String) {
+    init(quoteText: String, quoteAuthor: String, quoteImage: UIImage?) {
         self.quoteText = quoteText
         self.quoteAuthor = quoteAuthor
     }

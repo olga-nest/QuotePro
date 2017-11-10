@@ -44,8 +44,9 @@ class QuoteBilderViewController: UIViewController {
         }
         let text = quoteView.quoteTextLable.text
         let author = quoteView.quoteAuthorLabel.text
+        let image = quoteView.photoView.image
         
-        awesomeQuote = Quote(quoteText: text!, quoteAuthor: author!)
+        awesomeQuote = Quote(quoteText: text!, quoteAuthor: author!, quoteImage: image)
 
     }
 }
