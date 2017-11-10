@@ -39,9 +39,6 @@ class QuoteView: UIView {
 //    }
 //
     private func commonInit() {
-//        QuoteBuilder.shared.getQuote()
-//        let quote = QuoteBuilder.shared.quotes[0]
-//        setupQuote(newQuote: quote)
         updateQuote()
         setupFromXib()
         setupPhotoInView()
@@ -91,8 +88,6 @@ class QuoteView: UIView {
         contentView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-
-    
     }
     
     func updatePhoto() {

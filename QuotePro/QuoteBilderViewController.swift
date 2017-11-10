@@ -9,24 +9,22 @@
 import UIKit
 
 class QuoteBilderViewController: UIViewController {
+   
+    
 
+    //MARK: Properties
     @IBOutlet weak var quoteView: QuoteView!
-
-
+    @IBOutlet weak var saveButton: UIButton!
+    var awesomeQuote: Quote?
+    var awesomeQuotes = [Quote]()
+//    var quotesArr = [Quote]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     
-    }
-    */
-
+   
+    //MARK: Actions
     @IBAction func changePhoto(_ sender: UIButton) {
         quoteView.updatePhoto()
     }
@@ -35,6 +33,19 @@ class QuoteBilderViewController: UIViewController {
          quoteView.updateQuote()
     }
     
-    @IBAction func saveQuote(_ sender: UIButton) {
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIButton, button === saveButton else {
+            print("The save button was not pressed, cancelling")
+            return
+        }
+        let text = quoteView.quoteTextLable.text
+        let author = quoteView.quoteAuthorLabel.text
+        
+        awesomeQuote = Quote(quoteText: text!, quoteAuthor: author!)
+
     }
 }
