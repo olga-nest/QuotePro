@@ -37,7 +37,6 @@ class HomeScreenViewController: UITableViewController {
         }
         
         let quote = savedQuotes[indexPath.row]
-       // cell.quote = quote
         cell.quoteTextLabel.text = quote.quoteText
         cell.quoteAuthorLabel.text = quote.quoteAuthor
         cell.quoteImageView.image = quote.quotePhoto
