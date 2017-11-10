@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuoteBilderViewController: UIViewController, PassingQuotes {
+class QuoteBilderViewController: UIViewController {
    
     
 
@@ -23,15 +23,7 @@ class QuoteBilderViewController: UIViewController, PassingQuotes {
         super.viewDidLoad()
         
     }
-
-    
-    // MARK: - Navigation
-    
-    func passQuotes() -> Array<Quote> {
-       return awesomeQuotes
-    }
-
-    
+   
     //MARK: Actions
     @IBAction func changePhoto(_ sender: UIButton) {
         quoteView.updatePhoto()
@@ -41,18 +33,7 @@ class QuoteBilderViewController: UIViewController, PassingQuotes {
          quoteView.updateQuote()
     }
     
- //   @IBAction func saveQuote(_ sender: UIButton) {
-      
-//        let text = quoteView.quoteTextLable.text
-//        let author = quoteView.quoteAuthorLabel.text
-//
-//        let awesomeQuote = Quote(quoteText: text!, quoteAuthor: author!)
-//        awesomeQuote.quotePhoto = quoteView.photoView.image
-//
-//        awesomeQuotes.append(awesomeQuote)
-//
-//        performSegue(withIdentifier: "toTableView", sender: self)
-//    }
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -65,8 +46,6 @@ class QuoteBilderViewController: UIViewController, PassingQuotes {
         let author = quoteView.quoteAuthorLabel.text
         
         awesomeQuote = Quote(quoteText: text!, quoteAuthor: author!)
-//        awesomeQuote.quotePhoto = quoteView.photoView.image
-//        
-//        awesomeQuotes.append(awesomeQuote)
+
     }
 }

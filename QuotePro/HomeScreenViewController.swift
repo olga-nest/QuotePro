@@ -6,28 +6,22 @@
 //  Copyright © 2017 Olga Nesterova. All rights reserved.
 //
 
-protocol PassingQuotes {
-    func passQuotes() -> Array<Quote>
-}
-
 import UIKit
-
 
 class HomeScreenViewController: UITableViewController {
     
     //MARK: Properties
     var savedQuotes = [Quote]()
-    var delegate : PassingQuotes?
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = QuoteBilderViewController()
+        QuoteBuilder.shared.getQuote()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        savedQuotes = (delegate?.passQuotes())!
     }
     
     //MARK: Table view

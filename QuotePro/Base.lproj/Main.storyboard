@@ -6,11 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Screen View Controller-->
+        <!--QuotePro-->
         <scene sceneID="xT6-Fy-W0X">
             <objects>
                 <tableViewController id="xUy-HP-CqC" customClass="HomeScreenViewController" customModule="QuotePro" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,31 +23,48 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="quoteCell" rowHeight="100" id="KiW-yQ-fYB" customClass="QuoteTableViewCell" customModule="QuotePro" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KiW-yQ-fYB" id="f0M-g5-8pQ">
+                                <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KiW-yQ-fYB" id="f0M-g5-8pQ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I87-1l-2iq">
-                                            <rect key="frame" x="0.0" y="-15" width="152" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5y-dw-Tuy">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5y-dw-Tuy">
                                             <rect key="frame" x="160" y="11" width="199" height="49"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="49" id="KTI-dq-Fiv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mx5-my-eVe">
-                                            <rect key="frame" x="166" y="68" width="193" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mx5-my-eVe">
+                                            <rect key="frame" x="160" y="68" width="199" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I87-1l-2iq">
+                                            <rect key="frame" x="0.0" y="0.0" width="152" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="WqE-TG-BoO"/>
+                                                <constraint firstAttribute="width" secondItem="I87-1l-2iq" secondAttribute="height" multiplier="38:25" id="eFF-sK-4SU"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="mx5-my-eVe" firstAttribute="leading" secondItem="I87-1l-2iq" secondAttribute="trailing" constant="8" id="8vc-PU-Zb6"/>
+                                        <constraint firstItem="F5y-dw-Tuy" firstAttribute="leading" secondItem="I87-1l-2iq" secondAttribute="trailing" constant="8" id="BAU-Ed-ocb"/>
+                                        <constraint firstItem="mx5-my-eVe" firstAttribute="top" secondItem="F5y-dw-Tuy" secondAttribute="bottom" constant="8" id="z6v-Ro-AvK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="I87-1l-2iq" secondAttribute="bottom" id="06H-T3-pvB"/>
+                                    <constraint firstAttribute="trailing" secondItem="mx5-my-eVe" secondAttribute="trailing" constant="16" id="ELK-L7-ea3"/>
+                                    <constraint firstAttribute="bottom" secondItem="mx5-my-eVe" secondAttribute="bottom" constant="11" id="WiX-br-cTn"/>
+                                    <constraint firstItem="I87-1l-2iq" firstAttribute="leading" secondItem="KiW-yQ-fYB" secondAttribute="leading" id="cPK-aN-DMY"/>
+                                    <constraint firstItem="I87-1l-2iq" firstAttribute="top" secondItem="KiW-yQ-fYB" secondAttribute="top" id="cTX-48-aTl"/>
+                                    <constraint firstAttribute="trailing" secondItem="F5y-dw-Tuy" secondAttribute="trailing" constant="16" id="jZk-gz-3pj"/>
+                                    <constraint firstItem="F5y-dw-Tuy" firstAttribute="top" secondItem="KiW-yQ-fYB" secondAttribute="top" constant="11" id="otB-Uy-uGD"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="quoteAuthorLabel" destination="mx5-my-eVe" id="s1G-7y-ANE"/>
                                     <outlet property="quoteImageView" destination="I87-1l-2iq" id="33l-MY-LHm"/>
@@ -59,7 +77,7 @@
                             <outlet property="delegate" destination="xUy-HP-CqC" id="HCt-d8-ttD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Reb-ot-FNu">
+                    <navigationItem key="navigationItem" title="QuotePro" id="Reb-ot-FNu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="aja-Sl-Sr0">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" identifier="toQuoteBilderView" id="zXv-e5-LTa"/>
